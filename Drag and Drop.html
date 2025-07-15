@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop in HTML</title>
+    <style>
+        #getData
+        {
+            width: 250px;
+            height: 200px;
+            padding: 10px;
+            border: 1px solid #e43d3d;
+        }
+    </style>
+    <script>
+        function
+        allowDrop(even)
+        {
+            even.preventDefault();
+        }
+        function
+        drag(even)
+        {
+            even.dataTransfer.setData("text",even.target.id);
+        }
+        function
+        drop(even)
+        {
+            even.preventDefault();
+            var fetchData=even.dataTransfer.getData("text");
+            even.target.appendChild(document.getElementById(fetchData));
+        }
+    </script>
+</head>
+<body>
+    <h3>Drag the image into the rectangle</h3>
+    <div id="getData" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <br>
+    <img id="dragData" src="https://thumbs.dreamstime.com/z/celebrating-mother-earth-day-imagine-surreal-scene-where-colorful-radiant-enveloped-lush-nature-pristine-air-water-355597121.jpg?ct=jpeg" draggable="true" ondragstart="drag(event)" width="250" height="200">
+</body>
+</html>

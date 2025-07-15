@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas-Draw Image Method</title>
+</head>
+<body>
+    <h2>To Create a Canvas Draw Image</h2>
+    <div style="display:none;">
+        <img id="nature" src="https://cdn.pixabay.com/photo/2024/05/26/10/15/bird-8788491_1280.jpg" width="100" height="100">
+    </div>
+
+    <canvas id="mycanva" width="120" height="120" style="border: 2px solid black;"></canvas>
+
+    <script>
+        window.onload=function()
+        {
+            var c=document.getElementById("mycanva");
+            var ctx=c.getContext("2d");
+            var img=document.getElementById("nature");
+            ctx.drawImage(img,10,10,50,50);
+        };
+    </script>
+</body>
+</html>
